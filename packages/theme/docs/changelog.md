@@ -1,7 +1,7 @@
 ---
 title: 更新日志
 description: 最近更新（v0.5.29） ⏰ 2026/09/18：修复 Vite 8 / VitePress 2 下 SSR 构建崩溃（ERR_UNKNOWN_FILE_EXTENSION .css）
-author: 粥里有勺糖
+author: 去码头整点薯条
 top: 3
 tag: 日志
 ---

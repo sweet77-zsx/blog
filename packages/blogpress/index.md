@@ -1,8 +1,8 @@
 ---
 layout: home
 blog:
- name: 粥里有勺糖
- motto: 你的指尖,拥有改变世界的力量
+ name: 去码头整点薯条的博客
+ motto: 种一棵树最好的时间是在十年前，其次是现在
  pageSize: 12
  # 设置 inspiringTimeout 可以实现自动切换
  inspiringTimeout: 3000

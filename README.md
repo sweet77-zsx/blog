@@ -1,4 +1,4 @@
-<h1 align="center"> 粥里有勺糖 </h1>
+<h1 align="center"> 去码头整点薯条 </h1>
 <p align="center">你的指尖,拥有改变世界的力量</p>
 <p align="center">博客主题：<a href="https://theme.sugarat.top/" target="_blank">@sugarat/theme</a></p>
 <p align="center">
@@ -77,7 +77,7 @@ pnpm dev:theme
 
 ## :link:个人相关链接
 
-* [粥里有勺糖●博客园](https://www.cnblogs.com/roseAT/)
+* [去码头整点薯条●博客园](https://www.cnblogs.com/roseAT/)
 * [ATQQ●GitHub](https://github.com/ATQQ)
 * [ES6笔记●GITBOOK](https://sugar-js.gitbook.io/-1/)
 * [blog●GitBook](https://sugar-at.gitbook.io/blog-article/)

@@ -74,7 +74,7 @@ layout: home
 blog:
  # 设置首页的 banner 信息
  name: '@sugarat/theme'
- motto: 粥里有勺糖的博客主题
+ motto: 去码头整点薯条的博客主题
  inspiring: 基于 Vitepress 定制的主题🎨
  # 设置首页列表每页展示数量
  pageSize: 2
@@ -133,7 +133,7 @@ interface HomeAnalysis {
 # 省略其它配置
 blog:
  name: '@sugarat/theme'
- motto: 粥里有勺糖的博客主题
+ motto: 去码头整点薯条的博客主题
  inspiring:
   - 基于 Vitepress 定制的主题🎨
   - 千万不要因为走得太久，而忘记了我们为什么出发
@@ -336,7 +336,7 @@ hidden: true
 
 ```md
 ---
-author: 粥里有勺糖
+author: 去码头整点薯条
 ---
 ```
 

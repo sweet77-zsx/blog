@@ -250,7 +250,7 @@ const blogTheme = getThemeConfig({
 const blogTheme = getThemeConfig({
   home: {
     name: '@sugarat/theme',
-    motto: '粥里有勺糖的博客主题',
+    motto: '去码头整点薯条的博客主题',
     inspiring: '基于 Vitepress 定制的主题🎨',
     pageSize: 2
   }
@@ -828,7 +828,7 @@ const blogTheme = getThemeConfig({
   comment: {
     type: 'artalk',
     options: {
-      site: '粥里有勺糖',
+      site: '去码头整点薯条',
       server: '/artalk',
     },
   },
@@ -1428,7 +1428,7 @@ export interface ImagePreviewOptions {
 const blogTheme = getThemeConfig({
   friend: [
     {
-      nickname: '粥里有勺糖',
+      nickname: '去码头整点薯条',
       des: '你的指尖用于改变世界的力量',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
@@ -1491,7 +1491,7 @@ const blogTheme = getThemeConfig({
       // 省略其他配置项
       avatar: {
         // 单独设置 alt
-        alt: '粥里有勺糖23',
+        alt: '去码头整点薯条23',
         src:
           'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTI2NzY1Ng==674995267656'
       }
@@ -1560,7 +1560,7 @@ const blogTheme = getThemeConfig({
 const blogTheme = getThemeConfig({
   authorList: [
     {
-      nickname: '粥里有勺糖',
+      nickname: '去码头整点薯条',
       url: 'https://sugarat.top/aboutme.html',
       des: '你的指尖,拥有改变世界的力量'
     }
@@ -1635,7 +1635,7 @@ const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
   title: '@sugarat/theme',
   baseUrl,
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, 去码头整点薯条',
 }
 
 const blogTheme = getThemeConfig({
@@ -1654,7 +1654,7 @@ const RSS: Theme.RSSOptions = {
   language: 'zh-cn',
   image: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
   favicon: 'https://theme.sugarat.top/favicon.ico',
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, 去码头整点薯条',
   url: `${baseUrl}/feed.rss`
 }
 
@@ -1861,7 +1861,7 @@ buttonAfterArticle:
 const blogTheme = getThemeConfig({
   footer: {
     version: true,
-    copyright: 'MIT License | 粥里有勺糖'
+    copyright: 'MIT License | 去码头整点薯条'
   }
 })
 ```
@@ -1931,9 +1931,9 @@ interface Footer {
 const blogTheme = getThemeConfig({
   footer: {
     message: '下面 的内容和图标都是可以修改的噢（当然本条内容也是可以隐藏的，也可以配置为HTML）',
-    copyright: 'MIT License | 粥里有勺糖',
+    copyright: 'MIT License | 去码头整点薯条',
     icpRecord: {
-      name: '蜀ICP备19011724号',
+      name: '鄂ICP备2026000700号',
       link: 'https://beian.miit.gov.cn/'
     },
     securityRecord: {
@@ -1996,15 +1996,15 @@ footer（ message 字段也支持） 支持配置为数组，可以用于灵活�
 const blogTheme = getThemeConfig({
   footer: [{
     message: '下面 的内容和图标都是可以修改的噢（当然本条内容也是可以隐藏的）',
-    copyright: 'MIT License | 粥里有勺糖',
+    copyright: 'MIT License | 去码头整点薯条',
   }, {
     message: ['自定义多条内容', '自定义多条内容'],
-    copyright: 'MIT License | 粥里有勺糖',
+    copyright: 'MIT License | 去码头整点薯条',
     version: true
   }, {
     version: false,
     icpRecord: {
-      name: '蜀ICP备19011724号',
+      name: '鄂ICP备2026000700号',
       link: 'https://beian.miit.gov.cn/'
     },
     securityRecord: {

@@ -7,7 +7,7 @@ const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
   title: '@sugarat/theme',
   baseUrl,
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, 去码头整点薯条',
   description: '基于 vitepress 实现的简约博客主题',
   markdownOptions: {
     lineNumbers: false,
@@ -81,7 +81,7 @@ export const blogTheme = getThemeConfig({
   RSS,
   authorList: [
     {
-      nickname: '粥里有勺糖',
+      nickname: '去码头整点薯条',
       url: 'https://sugarat.top/aboutme.html',
       des: '你的指尖,拥有改变世界的力量'
     }
@@ -94,7 +94,7 @@ export const blogTheme = getThemeConfig({
   },
   friend: [
     {
-      nickname: '粥里有勺糖',
+      nickname: '去码头整点薯条',
       des: '你的指尖,拥有改变世界的力量',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030~fmt.webp',
@@ -108,7 +108,7 @@ export const blogTheme = getThemeConfig({
     }
   ],
   // 文章默认作者
-  author: '粥里有勺糖',
+  author: '去码头整点薯条',
   // 评论
   comment: {
     type: 'giscus',
@@ -134,7 +134,7 @@ export const blogTheme = getThemeConfig({
       {
         type: 'image',
         src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210~fmt.webp',
-        alt: '粥里有勺糖微信二维码'
+        alt: '去码头整点薯条微信二维码'
       },
       {
         type: 'text',
@@ -179,6 +179,6 @@ export const blogTheme = getThemeConfig({
   },
   works: workConfig,
   footer: {
-    copyright: 'MIT License | 粥里有勺糖',
+    copyright: 'MIT License | 去码头整点薯条',
   }
 })

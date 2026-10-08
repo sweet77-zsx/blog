@@ -21,14 +21,14 @@ const activeTag = useActiveTag()
 const activeTagLabel = computed(() => activeTag.value.label)
 
 const wikiList = computed(() => {
-  const topList = docs.value.filter(v => !v.meta.hidden && !!v.meta.top)
+  const topList = docs.value.filter(v => !v.meta.hidden && v.meta.publish !== false && !!v.meta.top)
   topList.sort((a, b) => {
     const aTop = a?.meta?.top
     const bTop = b?.meta.top
     return Number(aTop) - Number(bTop)
   })
   const data = docs.value.filter(
-    v => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden
+    v => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden && v.meta.publish !== false
   )
   data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date))
   return topList.concat(data)

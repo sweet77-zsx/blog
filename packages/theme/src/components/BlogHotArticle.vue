@@ -169,6 +169,7 @@ onMounted(() => requestAnimationFrame(() => isMounted.value = true))
 }
 .recommend-container li .num {
   display: block;
+  font-style: normal;
   font-size: 14px;
   color: var(--description-font-color);
   font-weight: 600;

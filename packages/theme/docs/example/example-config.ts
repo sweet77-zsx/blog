@@ -4,10 +4,10 @@ export default defineExamples([
   {
     cover: 'https://img.cdn.sugarat.top/mdImg/MTY3MzE3MDUxOTMwMw==673170519303',
     link: 'https://sugarat.top',
-    name: '粥里有勺糖',
+    name: '去码头整点薯条',
     desc: '记录随笔与学习笔记',
     avatar: 'https://cdn.upyun.sugarat.top/avatar/blog/zlyst-avatar.jpeg',
-    nickname: '粥里有勺糖',
+    nickname: '去码头整点薯条',
     home: 'https://github.com/atqq'
   },
   {

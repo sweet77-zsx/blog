@@ -3,9 +3,12 @@ import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter, withBase } from 'vitepress'
 import { wrapperCleanUrls } from '../utils/client'
 import { useArticles, useCleanUrls, useFormatShowDate, useRecommendConfig, useShowRecommend } from '../composables/config/blog'
+import { useSidebarToggle } from '../composables/sidebar'
 import { recommendSVG } from '../constants/svg'
 import type { Theme } from '../composables/config/index'
 import Button from './Button.vue'
+
+const { collapse } = useSidebarToggle()
 
 const formatShowDate = useFormatShowDate()
 
@@ -161,10 +164,25 @@ function handleLinkClick(link: string) {
   >
     <!-- 头部 -->
     <div class="card-header">
-      <span v-if="title" class="title" v-html="title" />
-      <Button v-if="showChangeBtn" size="small" type="primary" text @click="changePage">
-        {{ nextText }}
-      </Button>
+      <div class="header-left">
+        <span v-if="title" class="title" v-html="title" />
+      </div>
+      <div class="header-right">
+        <Button v-if="showChangeBtn" size="small" type="primary" text @click="changePage">
+          {{ nextText }}
+        </Button>
+        <button
+          class="sidebar-collapse-btn"
+          title="收起侧边栏"
+          aria-label="收起侧边栏"
+          @click="collapse"
+        >
+          <svg class="collapse-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span class="btn-text">收起</span>
+        </button>
+      </div>
     </div>
     <!-- 文章列表 -->
     <ol
@@ -233,68 +251,132 @@ function handleLinkClick(link: string) {
   padding: 10px;
 }
 
-.recommend-container {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0 10px 0 0px;
-  width: 100%;
-}
-.recommend-container.hide-num > li {
-  padding: 5px 0;
-}
-.recommend-container li {
-  display: flex;
-}
-.recommend-container li .num {
-  display: block;
-  font-size: 14px;
-  color: var(--description-font-color);
-  font-weight: 600;
-  margin: 6px 8px 10px 0;
-  width: 22px;
-  height: 18px;
-  line-height: 18px;
-  text-align: center;
-}
-.recommend-container li .des {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.recommend-container li .title {
-  font-size: 14px;
-  color: var(--vp-c-text-1);
-  word-break: break-all;
-  white-space: break-spaces;
-  font-weight: 500;
-  position: relative;
-  cursor: pointer;
-  transition: color 0.25s;
-}
-.recommend-container li .title.current, .recommend-container li .title:hover {
-  color: var(--vp-c-brand-1);
-}
-.recommend-container li .suffix {
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-}
-
 .card-header {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .card-header .title {
   font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
   display: flex;
   align-items: center;
+}
+.sidebar-collapse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+  padding: 0 8px 0 5px;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft, rgba(64, 158, 255, 0.12));
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+.sidebar-collapse-btn:hover {
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 2px 6px rgba(64, 158, 255, 0.3);
+  transform: translateX(-1px);
+}
+.sidebar-collapse-btn .collapse-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.sidebar-collapse-btn:hover .collapse-icon {
+  transform: translateX(-1px);
+}
+.sidebar-collapse-btn .btn-text {
+  font-size: 12px;
+  line-height: 1;
+}
+@media screen and (max-width: 959px) {
+  .sidebar-collapse-btn {
+    display: none;
+  }
+}
+
+.recommend-container {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  gap: 12px;
+}
+.recommend-container.hide-num > li {
+  padding: 0;
+}
+.recommend-container li {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+.recommend-container li .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-family: var(--vp-font-family-base, inherit);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  width: 20px;
+  height: 22px;
+  line-height: 22px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.recommend-container li .des {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.recommend-container li .title {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--vp-c-text-1);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+.recommend-container li .title.current,
+.recommend-container li .title:hover {
+  color: var(--vp-c-brand-1);
+}
+.recommend-container li .suffix {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--vp-c-text-3);
+  margin-top: 2px;
 }
 
 .empty-text {

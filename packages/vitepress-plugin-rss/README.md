@@ -17,9 +17,9 @@ import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 
 const baseUrl = 'https://sugarat.top'
 const RSS: RSSOptions = {
-  title: '粥里有勺糖',
+  title: '去码头整点薯条',
   baseUrl,
-  copyright: 'Copyright (c) 2018-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2018-present, 去码头整点薯条',
 }
 
 export default defineConfig({
@@ -182,9 +182,9 @@ enclosure_type: audio/mpeg
 ```ts
 const RSS: RSSOptions = {
   // necessary（必选参数）
-  title: '粥里有勺糖',
+  title: '去码头整点薯条',
   baseUrl,
-  copyright: 'Copyright (c) 2018-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2018-present, 去码头整点薯条',
 
   // optional（可选参数）
   // Enable cache (default: true)
@@ -198,14 +198,14 @@ const RSS: RSSOptions = {
   description: '大前端相关技术分享',
   language: 'zh-cn',
   author: { // Global feed author; also the default author for articles
-    name: '粥里有勺糖',
+    name: '去码头整点薯条',
     email: 'engineerzjl@foxmail.com',
     link: 'https://sugarat.top'
   },
   icon: true,
   authors: [ // Author list; articles can match by name to auto-fill other fields
     {
-      name: '粥里有勺糖',
+      name: '去码头整点薯条',
       email: 'engineerzjl@foxmail.com',
       link: 'https://sugarat.top'
     },

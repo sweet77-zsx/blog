@@ -16,7 +16,7 @@ export default defineConfig({
   cleanUrls: false,
   lang: 'zh-cn',
   title: '@sugarat/theme',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  description: '去码头整点薯条的博客主题，基于 vitepress 实现',
   rewrites: {
     'test/abc/hello/test.md': 'abc/test.md'
   },

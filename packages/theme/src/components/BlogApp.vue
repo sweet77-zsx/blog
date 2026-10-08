@@ -3,7 +3,8 @@ import Theme from 'vitepress/theme'
 import { useData } from 'vitepress'
 import { computed } from 'vue'
 import { useDarkTransition } from '../hooks/useDarkTransition'
-import { useBlogInfoCollapsible, useBlogThemeMode, useDarkTransitionConfig } from '../composables/config/blog'
+import { useBlogInfoCollapsible, useBlogThemeMode, useDarkTransitionConfig, useShowRecommend } from '../composables/config/blog'
+import { useSidebarToggle } from '../composables/sidebar'
 import BlogHomeInfo from './BlogHomeInfo.vue'
 import BlogHomeBanner from './BlogHomeBanner.vue'
 import BlogList from './BlogList.vue'
@@ -22,6 +23,8 @@ const isBlogTheme = useBlogThemeMode()
 const { Layout } = Theme
 
 const blogInfoCollapsible = useBlogInfoCollapsible()
+const showRecommend = useShowRecommend()
+const { isSidebarCollapsed, expand } = useSidebarToggle()
 
 // 切换深色模式过渡
 // https://vitepress.dev/zh/guide/extending-default-theme#on-appearance-toggle
@@ -36,6 +39,19 @@ const openTransition = useDarkTransitionConfig()
       <ClientOnly>
         <BlogOml2d />
         <BlogAlert />
+        <!-- 侧边栏展开悬浮按钮 -->
+        <button
+          v-if="isBlogTheme && showRecommend && layout !== 'home' && isSidebarCollapsed"
+          class="sidebar-expand-trigger"
+          title="展开侧边栏（相关文章）"
+          aria-label="展开侧边栏"
+          @click="expand"
+        >
+          <svg class="expand-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          <span class="trigger-text">展开相关文章</span>
+        </button>
       </ClientOnly>
     </template>
 
@@ -233,6 +249,56 @@ const openTransition = useDarkTransitionConfig()
   }
   .normal-mode {
     display: block;
+  }
+}
+
+.sidebar-expand-trigger {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: calc(var(--vp-nav-height, 64px) + 24px);
+  z-index: 50;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px 6px 8px;
+  background-color: var(--vp-c-bg-elv, #ffffff);
+  color: var(--vp-c-brand-1);
+  border: 1.5px solid var(--vp-c-brand-1);
+  border-left: none;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 2px 4px 14px rgba(64, 158, 255, 0.2);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-expand-trigger:hover {
+  background-color: var(--vp-c-brand-1);
+  color: #ffffff;
+  transform: translateX(3px);
+  box-shadow: 2px 6px 18px rgba(64, 158, 255, 0.35);
+}
+
+.sidebar-expand-trigger .expand-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-expand-trigger:hover .expand-icon {
+  transform: translateX(1px);
+}
+
+.sidebar-expand-trigger .trigger-text {
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+@media screen and (min-width: 960px) {
+  .sidebar-expand-trigger {
+    display: inline-flex;
   }
 }
 </style>

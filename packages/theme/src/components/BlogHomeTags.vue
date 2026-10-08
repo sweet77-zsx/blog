@@ -24,6 +24,7 @@ const title = computed(() => (typeof homeTagsConfig.value === 'boolean' || !home
 const tagsWithCount = computed(() => {
   const tagCountMap = new Map<string, number>()
   docs.value.forEach((v) => {
+    if (v.meta.hidden || v.meta.publish === false) return
     const articleTags = v.meta.tag || []
     const flatTags = Array.isArray(articleTags) ? articleTags.flat(3) : [articleTags]
     flatTags.forEach((tag: string) => {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "author": "粥里有勺糖",
+  "author": "去码头整点薯条",
   "license": "MIT",
   "scripts": {
     "dev": "vitepress dev docs",
