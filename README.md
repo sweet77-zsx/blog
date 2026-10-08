@@ -68,50 +68,12 @@ pnpm dev:theme
 
 记录面试中所遇的问题，并整理相关知识点，分模块进行了梳理
 
-## :speak_no_evil:[关于笔者](./docs/aboutme.md)
-21年毕业，目前就职于美团，热爱大前端开发技术
+## :heart: 致谢与原作者
 
-热爱开源，乐于分享
+本项目基于原作者优秀的开源博客项目进行二次开发与个性化定制。
 
-![图片](https://img.cdn.sugarat.top/mdImg/MTYwNDcyMTQ4NTMyOA==604721485328)
+在此特别鸣谢原作者 [@ATQQ](https://github.com/ATQQ) 开源的现代化 VitePress 博客系统及 [@sugarat/theme](https://theme.sugarat.top/) 插件生态！
 
-## :link:个人相关链接
-
-* [去码头整点薯条●博客园](https://www.cnblogs.com/roseAT/)
-* [ATQQ●GitHub](https://github.com/ATQQ)
-* [ES6笔记●GITBOOK](https://sugar-js.gitbook.io/-1/)
-* [blog●GitBook](https://sugar-at.gitbook.io/blog-article/)
-* [掘金](https://juejin.im/user/1028798615918983)
-
-## :phone:联系我
-如对博客内容，知识，排版等有疑问或者建议，欢迎邮件和我联系
-
-**邮箱:engineerzjl@foxmail.com**
-
-![公众号](packages/blogpress/public/mp-code.png)
-
-## :coffee:赞赏
-|                                  微信                                   |                                微信赞赏                                 |                                 支付宝                                  |
-| :---------------------------------------------------------------------: | :---------------------------------------------------------------------: | :---------------------------------------------------------------------: |
-| ![](https://img.cdn.sugarat.top/mdImg/MTY1MTU0NzQ0MjMzNA==651547442334) | ![](https://img.cdn.sugarat.top/mdImg/MTY0Nzc1NTYyOTE5Mw==647755629193) | ![](https://img.cdn.sugarat.top/mdImg/MTY1MTU0NzQyOTg0OA==651547429848) |
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/chart?repos=atqq/sugar-blog&type=date&legend=top-left)](https://www.star-history.com/?repos=atqq%2Fsugar-blog&type=date&legend=top-left)
-
-## Stargazers over time
-[![Stargazers over time](https://starchart.cc/ATQQ/sugar-blog.svg?variant=adaptive)](https://starchart.cc/ATQQ/sugar-blog)
-
-## Project Status
-
-![status](https://repobeats.axiom.co/api/embed/49625195d138fdaccc82ef70c9645d9a85afda5f.svg "Repobeats analytics image")
-
-## Contributors
-
-Thanks to all the contributors!
-
-<a href="https://github.com/atqq/sugar-blog/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=atqq/sugar-blog" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
+* **原作者**：[ATQQ (大粽子)](https://github.com/ATQQ)
+* **原作者仓库**：[https://github.com/ATQQ/sugar-blog](https://github.com/ATQQ/sugar-blog)
+* **主题官方文档**：[https://theme.sugarat.top/](https://theme.sugarat.top/)
