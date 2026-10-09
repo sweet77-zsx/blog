@@ -1,4 +1,5 @@
 import { onBeforeUnmount, onMounted } from 'vue'
+import { withBase } from 'vitepress'
 import type { ModelOptions, Widget, WidgetOptions } from 'l2d-widget'
 import { useOml2dOptions } from '../composables/config/blog'
 
@@ -29,8 +30,10 @@ function warnLegacyOptions(options: Oml2dOptions) {
 }
 
 function normalizeModel(model: LegacyModelOptions): ModelOptions {
+  const path = /^(?:https?:)?\/\//i.test(model.path) ? model.path : withBase(model.path)
   return {
     ...model,
+    path,
     offset: model.offset,
     tips: model.tips
   }
@@ -65,6 +68,7 @@ function normalizeOptions(options: Oml2dOptions): WidgetOptions | undefined {
 export function useOml2d() {
   const oml2dOptions = useOml2dOptions()
   let widget: Widget | undefined
+  let loadTimeoutTimer: ReturnType<typeof setTimeout> | undefined
 
   const init = async () => {
     if (!oml2dOptions.value || widget) {
@@ -75,6 +79,30 @@ export function useOml2d() {
     if (options) {
       const { createWidget } = await import('l2d-widget')
       widget = createWidget(options)
+
+      let loaded = false
+      widget.l2d.on('loaded', () => {
+        loaded = true
+        if (loadTimeoutTimer) {
+          clearTimeout(loadTimeoutTimer)
+          loadTimeoutTimer = undefined
+        }
+      })
+
+      // 10秒超时防卡死：若因极端网络原因加载超时，自动收起“正在加载”状态条，避免用户页面卡住
+      loadTimeoutTimer = setTimeout(() => {
+        if (!loaded) {
+          console.warn('[sugarat-theme] 看板娘资源加载超时，自动收起加载提示')
+          const spans = document.querySelectorAll('span')
+          spans.forEach((span) => {
+            if (span.textContent?.trim() === '正在加载' && span.parentElement) {
+              const bar = span.parentElement
+              const isRight = bar.style.right !== '' && bar.style.right !== 'auto'
+              bar.style.transform = isRight ? 'translateY(50%) translateX(100%)' : 'translateY(50%) translateX(-100%)'
+            }
+          })
+        }
+      }, 10000)
     }
   }
 
@@ -83,6 +111,9 @@ export function useOml2d() {
   })
 
   onBeforeUnmount(() => {
+    if (loadTimeoutTimer) {
+      clearTimeout(loadTimeoutTimer)
+    }
     widget?.destroy()
   })
 }

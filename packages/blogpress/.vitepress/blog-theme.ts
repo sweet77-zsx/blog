@@ -32,7 +32,7 @@ export const blogTheme = getThemeConfig({
     mobileSize: { width: 110, height: 110 },
     model: [
       {
-        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+        path: '/models/senko/senko.model3.json',
         offset: [0, 0.2]
       }
     ]
