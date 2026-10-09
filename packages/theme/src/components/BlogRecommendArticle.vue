@@ -246,14 +246,16 @@ function handleLinkClick(link: string) {
   display: flex;
   flex-direction: column;
   padding: 0px;
-  max-height: calc(100vh - var(--vp-nav-height, 64px) - 220px);
+  margin-top: 0;
+  max-height: calc(100vh - var(--vp-nav-height, 64px) - 200px);
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .recommend.card {
   padding: 10px;
-  max-height: calc(100vh - var(--vp-nav-height, 64px) - 220px);
+  margin-top: 0;
+  max-height: calc(100vh - var(--vp-nav-height, 64px) - 200px);
 }
 
 .card-header {
@@ -266,7 +268,8 @@ function handleLinkClick(link: string) {
   top: 0;
   z-index: 5;
   background: var(--vp-sidebar-bg-color, var(--vp-c-bg));
-  padding: 2px 0 10px 0;
+  padding: 6px 0 10px 0;
+  margin-top: 0;
   margin-bottom: 8px;
   border-bottom: 1px solid var(--vp-c-divider-light, rgba(60, 60, 67, 0.08));
 }

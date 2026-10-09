@@ -177,8 +177,27 @@ span.svg-icon svg {
   .VPSidebar {
     transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.25s ease !important;
     overflow-y: hidden !important;
-    padding-top: calc(var(--vp-nav-height, 64px) + 16px) !important;
+    padding-top: calc(var(--vp-nav-height, 64px) + 12px) !important;
   }
+
+  /* 彻底消除侧边栏顶部空分组占位与多余留白，让相关文章整体紧凑贴顶 */
+  .VPSidebar .group:not(:has(.text)),
+  .VPSidebar .group:empty,
+  .VPSidebarItem.level-0:not(:has(.text)) {
+    display: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .VPSidebar #VPSidebarNav,
+  .VPSidebar .nav,
+  .VPSidebar .sidebar {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
   .VPContent.has-sidebar {
     transition: padding-left 0.3s cubic-bezier(0.2, 0, 0, 1), padding-right 0.3s cubic-bezier(0.2, 0, 0, 1) !important;
   }

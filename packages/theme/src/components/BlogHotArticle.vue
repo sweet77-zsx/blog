@@ -15,6 +15,7 @@ const title = computed(() => hotArticle.value?.title || `${fireSVG}精选文章`
 const nextText = computed(() => hotArticle.value?.nextText || '换一组')
 const pageSize = computed(() => hotArticle.value?.pageSize || 9)
 const empty = computed(() => hotArticle.value?.empty ?? '暂无精选内容')
+const showDateTag = computed(() => hotArticle.value?.showDate ?? false)
 
 const docs = useArticles()
 
@@ -90,8 +91,8 @@ onMounted(() => requestAnimationFrame(() => isMounted.value = true))
               }}
             </span>
           </a>
-          <!-- 描述信息 -->
-          <div class="suffix">
+          <!-- 描述信息 (默认不展示时间) -->
+          <div v-if="showDateTag" class="suffix">
             <!-- 日期 -->
             <span class="tag">{{ showDate(v.meta.date) }}</span>
           </div>
@@ -148,6 +149,8 @@ onMounted(() => requestAnimationFrame(() => isMounted.value = true))
 }
 .recommend-container li {
   display: flex;
+  align-items: center;
+  padding: 5px 0;
 }
 .recommend-container li:nth-child(1) .num {
   background-color: #f56c6c;
@@ -168,28 +171,39 @@ onMounted(() => requestAnimationFrame(() => isMounted.value = true))
   border-radius: 6px;
 }
 .recommend-container li .num {
-  display: block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-style: normal;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--description-font-color);
   font-weight: 600;
-  margin: 6px 12px 10px 0;
+  margin: 0 10px 0 0;
   width: 18px;
   height: 18px;
   line-height: 18px;
   text-align: center;
+  flex-shrink: 0;
 }
 .recommend-container li .des {
+  flex: 1;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .recommend-container li .title {
   font-size: 14px;
+  line-height: 20px;
   color: var(--vp-c-text-1);
   font-weight: 500;
   position: relative;
   cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .recommend-container li .title:hover::after {
   content: "";
