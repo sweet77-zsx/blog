@@ -2,6 +2,7 @@
 title: 看一遍就理解：MVCC 原理详解
 description: 深入浅出解析 MySQL InnoDB 存储引擎的多版本并发控制（MVCC）工作原理、ReadView 机制与版本链
 date: 2024-05-24
+sticky: 1
 tags:
   - MySQL
   - 数据库

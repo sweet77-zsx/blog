@@ -24,7 +24,18 @@ export const blogTheme = getThemeConfig({
   recommend: {
     showSelf: true,
     nextText: '下一页',
-    style: 'sidebar'
+    style: 'sidebar',
+    pageSize: 15
+  },
+  oml2d: {
+    size: { width: 180, height: 180 },
+    mobileSize: { width: 110, height: 110 },
+    model: [
+      {
+        path: 'https://registry.npmmirror.com/oml2d-models/latest/files/models/Senko_Normals/senko.model3.json',
+        offset: [0, 0.2]
+      }
+    ]
   },
   authorList: [
     {

@@ -176,6 +176,8 @@ span.svg-icon svg {
   /* 基础侧边栏与内容区过渡动画 */
   .VPSidebar {
     transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.25s ease !important;
+    overflow-y: hidden !important;
+    padding-top: calc(var(--vp-nav-height, 64px) + 16px) !important;
   }
   .VPContent.has-sidebar {
     transition: padding-left 0.3s cubic-bezier(0.2, 0, 0, 1), padding-right 0.3s cubic-bezier(0.2, 0, 0, 1) !important;
@@ -239,5 +241,14 @@ span.svg-icon svg {
   html.sidebar-collapsed .VPContent.has-sidebar {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+
+/* ==================== 茶宠与移动端菜单交互优化 ==================== */
+@media screen and (max-width: 959px) {
+  .VPSidebar.open ~ * div[style*="9999"],
+  html.sidebar-open body > div[style*="9999"] {
+    opacity: 0.15;
+    pointer-events: none !important;
   }
 }

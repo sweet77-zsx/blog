@@ -243,12 +243,17 @@ function handleLinkClick(link: string) {
 }
 
 .recommend {
+  display: flex;
   flex-direction: column;
   padding: 0px;
+  max-height: calc(100vh - var(--vp-nav-height, 64px) - 220px);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .recommend.card {
   padding: 10px;
+  max-height: calc(100vh - var(--vp-nav-height, 64px) - 220px);
 }
 
 .card-header {
@@ -256,7 +261,14 @@ function handleLinkClick(link: string) {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--vp-sidebar-bg-color, var(--vp-c-bg));
+  padding: 2px 0 10px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--vp-c-divider-light, rgba(60, 60, 67, 0.08));
 }
 .header-left {
   display: flex;
@@ -313,6 +325,10 @@ function handleLinkClick(link: string) {
   .sidebar-collapse-btn {
     display: none;
   }
+  .recommend,
+  .recommend.card {
+    max-height: calc(100vh - 120px);
+  }
 }
 
 .recommend-container {
@@ -320,9 +336,28 @@ function handleLinkClick(link: string) {
   flex-direction: column;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 4px 6px 14px 0;
   width: 100%;
   gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-divider, rgba(60, 60, 67, 0.2)) transparent;
+}
+.recommend-container::-webkit-scrollbar {
+  width: 4px;
+}
+.recommend-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.recommend-container::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider, rgba(60, 60, 67, 0.25));
+  border-radius: 4px;
+}
+.recommend-container::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-1);
 }
 .recommend-container.hide-num > li {
   padding: 0;

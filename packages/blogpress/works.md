@@ -3,7 +3,6 @@ title: 个人作品展示
 description: 个人独立开发与开源项目展示
 sidebar: false
 outline: [2, 3]
-sticky: 1
 publish: false
 recommend: false
 pagefind-indexed: false
