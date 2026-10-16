@@ -13,8 +13,8 @@ import { onMounted } from 'vue'
 import { useRouter } from 'vitepress'
 const router = useRouter()
 onMounted(() => {
-  router.go('/work')
+  router.go('/work.html')
 })
 </script>
 
-正在前往 [个人作品展示](/work)...
+正在前往 [个人作品展示](/work.html)...

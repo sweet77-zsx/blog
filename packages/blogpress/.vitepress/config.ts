@@ -4,6 +4,7 @@ import { blogTheme } from './blog-theme.ts'
 
 export default defineConfig({
   extends: blogTheme,
+  cleanUrls: false,
   srcExclude: ['CHANGELOG.md', 'redirect-tag.md'],
   markdown: {
     image: {
@@ -102,12 +103,12 @@ export default defineConfig({
       },
       {
         text: '作品',
-        link: '/work',
+        link: '/work.html',
         activeMatch: '^/work'
       },
       {
         text: '关于我',
-        link: '/aboutme'
+        link: '/aboutme.html'
       }
     ],
     socialLinks: [
