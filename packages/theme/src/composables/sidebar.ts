@@ -7,7 +7,8 @@ function syncClass(val: boolean) {
   if (typeof document !== 'undefined') {
     if (val) {
       document.documentElement.classList.add('sidebar-collapsed')
-    } else {
+    }
+    else {
       document.documentElement.classList.remove('sidebar-collapsed')
     }
   }
@@ -25,14 +26,6 @@ export function useSidebarToggle() {
     }
   })
 
-  const toggle = () => {
-    isSidebarCollapsed.value = !isSidebarCollapsed.value
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('sugar-blog-sidebar-collapsed', String(isSidebarCollapsed.value))
-      syncClass(isSidebarCollapsed.value)
-    }
-  }
-
   const collapse = () => {
     isSidebarCollapsed.value = true
     if (typeof window !== 'undefined') {
@@ -49,10 +42,5 @@ export function useSidebarToggle() {
     }
   }
 
-  return {
-    isSidebarCollapsed,
-    toggle,
-    collapse,
-    expand
-  }
+  return { isSidebarCollapsed, collapse, expand }
 }

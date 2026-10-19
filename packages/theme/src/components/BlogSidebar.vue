@@ -17,10 +17,21 @@ const sidebarStyle = computed(() =>
 </template>
 
 <style scoped>
-.sidebar {
-  margin-top: 0;
-}
+.sidebar,
 .sidebar.card {
-  margin-top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  position: relative;
+}
+
+@media screen and (min-width: 960px) and (max-width: 1120px) {
+  .sidebar,
+  .sidebar.card {
+    margin-top: 0 !important;
+  }
 }
 </style>

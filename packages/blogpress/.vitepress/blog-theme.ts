@@ -25,7 +25,7 @@ export const blogTheme = getThemeConfig({
     showSelf: true,
     nextText: '下一页',
     style: 'sidebar',
-    pageSize: 15
+    pageSize: 11
   },
   oml2d: {
     size: { width: 180, height: 180 },
