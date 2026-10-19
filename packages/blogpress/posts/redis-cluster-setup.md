@@ -45,24 +45,24 @@ tags:
 文件内容如下：
 
 ```yaml
-version: "3.2"
+version: '3.2'
 
 services:
   r1:
     image: redis
     container_name: r1
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7001"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7001']
   r2:
     image: redis
     container_name: r2
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7002"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7002']
   r3:
     image: redis
     container_name: r3
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7003"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7003']
 ```
 
  将其上传至虚拟机的`/root/redis`目录下：![Redis集群架构及部署图](/posts/redis-cluster/img-2.png)
@@ -395,45 +395,45 @@ sentinel failover-timeout hmaster 60000
 其内容如下：
 
 ```yaml
-version: "3.2"
+version: '3.2'
 
 services:
   r1:
     image: redis
     container_name: r1
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7001"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7001']
   r2:
     image: redis
     container_name: r2
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7002", "--slaveof", "192.168.150.101", "7001"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7002', --slaveof, 192.168.150.101, '7001']
   r3:
     image: redis
     container_name: r3
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7003", "--slaveof", "192.168.150.101", "7001"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7003', --slaveof, 192.168.150.101, '7001']
   s1:
     image: redis
     container_name: s1
     volumes:
       - /root/redis/s1:/etc/redis
-    network_mode: "host"
-    entrypoint: ["redis-sentinel", "/etc/redis/sentinel.conf", "--port", "27001"]
+    network_mode: host
+    entrypoint: [redis-sentinel, /etc/redis/sentinel.conf, --port, '27001']
   s2:
     image: redis
     container_name: s2
     volumes:
       - /root/redis/s2:/etc/redis
-    network_mode: "host"
-    entrypoint: ["redis-sentinel", "/etc/redis/sentinel.conf", "--port", "27002"]
+    network_mode: host
+    entrypoint: [redis-sentinel, /etc/redis/sentinel.conf, --port, '27002']
   s3:
     image: redis
     container_name: s3
     volumes:
       - /root/redis/s3:/etc/redis
-    network_mode: "host"
-    entrypoint: ["redis-sentinel", "/etc/redis/sentinel.conf", "--port", "27003"]
+    network_mode: host
+    entrypoint: [redis-sentinel, /etc/redis/sentinel.conf, --port, '27003']
 ```
 
 说明：
@@ -604,39 +604,39 @@ appendonly yes
 最后，还要配置读写分离，让 java 客户端将写请求发送到 master 节点，读请求发送到 slave 节点。定义一个 bean 即可：
 
 ```yaml
-version: "3.2"
+version: '3.2'
 
 services:
   r1:
     image: redis
     container_name: r1
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7001", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7001', --cluster-enabled, yes, --cluster-config-file, node.conf]
   r2:
     image: redis
     container_name: r2
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7002", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7002', --cluster-enabled, yes, --cluster-config-file, node.conf]
   r3:
     image: redis
     container_name: r3
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7003", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7003', --cluster-enabled, yes, --cluster-config-file, node.conf]
   r4:
     image: redis
     container_name: r4
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7004", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7004', --cluster-enabled, yes, --cluster-config-file, node.conf]
   r5:
     image: redis
     container_name: r5
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7005", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7005', --cluster-enabled, yes, --cluster-config-file, node.conf]
   r6:
     image: redis
     container_name: r6
-    network_mode: "host"
-    entrypoint: ["redis-server", "--port", "7006", "--cluster-enabled", "yes", "--cluster-config-file", "node.conf"]
+    network_mode: host
+    entrypoint: [redis-server, --port, '7006', --cluster-enabled, yes, --cluster-config-file, node.conf]
 ```
 
 这个 bean 中配置的就是读写策略，包括四种：
